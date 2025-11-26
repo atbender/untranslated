@@ -4,6 +4,28 @@ A Python web app that degrades translations through deterministic multi-hop back
 
 ![Example Interface](examples.jpeg)
 
+## BLEU Score Analysis
+
+Generate a graph showing how translation quality (measured by BLEU score) degrades with increasing hops:
+
+```bash
+# Make sure the app server is running first
+python3 app.py
+
+# In another terminal, run:
+python3 generate_bleu_graph.py
+```
+
+This will:
+- Test hops 0-20
+- Calculate BLEU scores for each degraded translation
+- Generate a graph saved as `bleu_scores.png`
+- Print summary statistics and example degraded texts
+
+![BLEU Score Graph](bleu_scores.png)
+
+The graph shows BLEU score (y-axis) vs number of hops (x-axis), demonstrating how translation quality degrades as text passes through more translation round-trips.
+
 ## Features
 
 - **Real translations** via OpenRouter API using Google Gemini Flash Lite
@@ -78,28 +100,6 @@ You can add your own text examples to test how they degrade:
 2. Click "Add Custom Example" or press Enter
 3. Your custom example will appear in the table with a red "Custom" badge
 4. Adjust the hops slider to see how your text degrades through multiple translations
-
-## BLEU Score Analysis
-
-Generate a graph showing how translation quality (measured by BLEU score) degrades with increasing hops:
-
-```bash
-# Make sure the app server is running first
-python3 app.py
-
-# In another terminal, run:
-python3 generate_bleu_graph.py
-```
-
-This will:
-- Test hops 0-20
-- Calculate BLEU scores for each degraded translation
-- Generate a graph saved as `bleu_scores.png`
-- Print summary statistics and example degraded texts
-
-![BLEU Score Graph](bleu_scores.png)
-
-The graph shows BLEU score (y-axis) vs number of hops (x-axis), demonstrating how translation quality degrades as text passes through more translation round-trips.
 
 ## API Endpoints
 
