@@ -137,7 +137,6 @@ Add a custom example for testing.
 
 ## Requirements
 
-- Python 3.8+
 - `requests` - HTTP library for API calls
 - `python-dotenv` - Environment variable management
 - `nltk` - Natural language processing (for BLEU scores)
